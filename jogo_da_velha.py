@@ -76,6 +76,36 @@ def faz_jogada():
         status = False
     
     return status
+def check_vencedor():
+    status = False
+    # linhas
+    if q1 == q2 == q3 !='':
+        pygame.draw.line(screen, 'orange' ,(50, 100), (550, 100), 10)
+        status = True
+    elif q4 == q5 == q6!='':
+        pygame.draw.line(screen, 'orange' ,(50, 300), (550, 300), 10)
+        status = True
+    elif q7 == q8 == q9!='':
+        pygame.draw.line(screen, 'orange' ,(50, 500), (550, 500), 10)
+        status = True
+    # colunas
+    elif q1 == q4 == q7!='':
+        pygame.draw.line(screen, 'orange' ,(100, 50), (100, 600), 10)
+        status = True
+    elif q2  == q5 == q8!='':
+        pygame.draw.line(screen, 'orange' ,(300, 100), (600, 600), 10)
+        status = True
+    elif q3 == q6 == q9!='':
+       status = True
+    #diagonais
+    elif q1 == q5 == q9!='':
+        pygame.draw.line(screen, 'orange' ,(50, 100), (550, 500), 10)
+        status = True
+    elif q3 == q5 == q7!='':
+        status = True
+    
+    return status
+    
 
 while running:
     # controle de enventos no jgo
@@ -91,22 +121,24 @@ while running:
             print('eixo Y:', click_pos[1])
             coordenada_x = click_pos[0]
             coordenada_y = click_pos[1]
-            if rodadas >= 9:
+            if(rodadas >= 9):
                 screen.fill('black') 
                 rodadas = 0
                 coordenada_x = 0
                 coordenada_y = 0
+                jogador_atual = personagem_x
                 tabuleiro_desenhado = False
+                break
             if(faz_jogada()):
                 rodadas = rodadas + 1
                 if jogador_atual == personagem_x:
                     jogador_atual = personagem_o
                 else:
                     jogador_atual = personagem_x
+                if(check_vencedor()):
+                    rodadas = 9 
+
            
-                
-           
-    
     if tabuleiro_desenhado == False:
         desenha_tabuleiro(10, 'purple')
         q1 =''
