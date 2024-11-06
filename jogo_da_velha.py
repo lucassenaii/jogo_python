@@ -93,15 +93,17 @@ def check_vencedor():
         pygame.draw.line(screen, 'orange' ,(100, 50), (100, 600), 10)
         status = True
     elif q2  == q5 == q8!='':
-        pygame.draw.line(screen, 'orange' ,(300, 100), (600, 600), 10)
+        pygame.draw.line(screen, 'orange' ,(300, 150), (300, 600), 10)
         status = True
     elif q3 == q6 == q9!='':
-       status = True
+        pygame.draw.line(screen, 'orange' ,(50, 100), (550, 500), 10)
+        status = True
     #diagonais
     elif q1 == q5 == q9!='':
         pygame.draw.line(screen, 'orange' ,(50, 100), (550, 500), 10)
         status = True
     elif q3 == q5 == q7!='':
+        pygame.draw.line(screen, 'orange' ,(500, 100), (50, 100), 10)
         status = True
     
     return status
